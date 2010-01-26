@@ -11,7 +11,7 @@ setup(
     classifiers=[
         'Programming Language :: Python', 
         'Framework :: Django', 
-        'License :: OSI Approved :: MIT License',
+        'License :: OSI Approved :: BSD License',
     ]
 )
 
