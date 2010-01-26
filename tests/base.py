@@ -2,10 +2,10 @@ from django import http
 from django.test import TestCase
 from django.conf import settings
 from django.utils.translation import ugettext_lazy
-from django.contrib.messages import constants, utils
-from django.contrib.messages.api import MessageFailure, get_level, set_level
-from django.contrib.messages.storage import default_storage, base
-from django.contrib.messages.storage.base import Message
+from django_messages_framework import constants, utils
+from django_messages_framework.api import MessageFailure, get_level, set_level
+from django_messages_framework.storage import default_storage, base
+from django_messages_framework.storage.base import Message
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 
@@ -26,7 +26,7 @@ def add_level_messages(storage):
 class BaseTest(TestCase):
     storage_class = default_storage
     restore_settings = ['MESSAGE_LEVEL', 'MESSAGE_TAGS']
-    urls = 'django.contrib.messages.tests.urls'
+    urls = 'django_messages_framework.tests.urls'
     levels = {
         'debug': constants.DEBUG,
         'info': constants.INFO,
@@ -154,9 +154,9 @@ class BaseTest(TestCase):
         data = {
             'messages': ['Test message %d' % x for x in xrange(10)],
         }
-        show_url = reverse('django.contrib.messages.tests.urls.show')
+        show_url = reverse('django_messages_framework.tests.urls.show')
         for level in ('debug', 'info', 'success', 'warning', 'error'):
-            add_url = reverse('django.contrib.messages.tests.urls.add',
+            add_url = reverse('django_messages_framework.tests.urls.add',
                               args=(level,))
             response = self.client.post(add_url, data, follow=True)
             self.assertRedirects(response, show_url)
@@ -176,12 +176,12 @@ class BaseTest(TestCase):
         data = {
             'messages': ['Test message %d' % x for x in xrange(10)],
         }
-        show_url = reverse('django.contrib.messages.tests.urls.show')
+        show_url = reverse('django_messages_framework.tests.urls.show')
         messages = []
         for level in ('debug', 'info', 'success', 'warning', 'error'):
             messages.extend([Message(self.levels[level], msg) for msg in
                                                              data['messages']])
-            add_url = reverse('django.contrib.messages.tests.urls.add',
+            add_url = reverse('django_messages_framework.tests.urls.add',
                               args=(level,))
             self.client.post(add_url, data)
         response = self.client.get(show_url)
@@ -201,23 +201,23 @@ class BaseTest(TestCase):
         self.client.login(username='test', password='test')
         settings.INSTALLED_APPS = list(settings.INSTALLED_APPS)
         settings.INSTALLED_APPS.remove(
-            'django.contrib.messages',
+            'django_messages_framework',
         )
         settings.MIDDLEWARE_CLASSES = list(settings.MIDDLEWARE_CLASSES)
         settings.MIDDLEWARE_CLASSES.remove(
-            'django.contrib.messages.middleware.MessageMiddleware',
+            'django_messages_framework.middleware.MessageMiddleware',
         )
         settings.TEMPLATE_CONTEXT_PROCESSORS = \
           list(settings.TEMPLATE_CONTEXT_PROCESSORS)
         settings.TEMPLATE_CONTEXT_PROCESSORS.remove(
-            'django.contrib.messages.context_processors.messages',
+            'django_messages_framework.context_processors.messages',
         )
         data = {
             'messages': ['Test message %d' % x for x in xrange(10)],
         }
-        show_url = reverse('django.contrib.messages.tests.urls.show')
+        show_url = reverse('django_messages_framework.tests.urls.show')
         for level in ('debug', 'info', 'success', 'warning', 'error'):
-            add_url = reverse('django.contrib.messages.tests.urls.add',
+            add_url = reverse('django_messages_framework.tests.urls.add',
                               args=(level,))
             response = self.client.post(add_url, data, follow=True)
             self.assertRedirects(response, show_url)
@@ -235,23 +235,23 @@ class BaseTest(TestCase):
         settings.MESSAGE_LEVEL = constants.DEBUG
         settings.INSTALLED_APPS = list(settings.INSTALLED_APPS)
         settings.INSTALLED_APPS.remove(
-            'django.contrib.messages',
+            'django_messages_framework',
         )
         settings.MIDDLEWARE_CLASSES = list(settings.MIDDLEWARE_CLASSES)
         settings.MIDDLEWARE_CLASSES.remove(
-            'django.contrib.messages.middleware.MessageMiddleware',
+            'django_messages_framework.middleware.MessageMiddleware',
         )
         settings.TEMPLATE_CONTEXT_PROCESSORS = \
           list(settings.TEMPLATE_CONTEXT_PROCESSORS)
         settings.TEMPLATE_CONTEXT_PROCESSORS.remove(
-            'django.contrib.messages.context_processors.messages',
+            'django_messages_framework.context_processors.messages',
         )
         data = {
             'messages': ['Test message %d' % x for x in xrange(10)],
         }
-        show_url = reverse('django.contrib.messages.tests.urls.show')
+        show_url = reverse('django_messages_framework.tests.urls.show')
         for level in ('debug', 'info', 'success', 'warning', 'error'):
-            add_url = reverse('django.contrib.messages.tests.urls.add',
+            add_url = reverse('django_messages_framework.tests.urls.add',
                               args=(level,))
             self.assertRaises(MessageFailure, self.client.post, add_url,
                               data, follow=True)
@@ -264,24 +264,24 @@ class BaseTest(TestCase):
         settings.MESSAGE_LEVEL = constants.DEBUG
         settings.INSTALLED_APPS = list(settings.INSTALLED_APPS)
         settings.INSTALLED_APPS.remove(
-            'django.contrib.messages',
+            'django_messages_framework',
         )
         settings.MIDDLEWARE_CLASSES = list(settings.MIDDLEWARE_CLASSES)
         settings.MIDDLEWARE_CLASSES.remove(
-            'django.contrib.messages.middleware.MessageMiddleware',
+            'django_messages_framework.middleware.MessageMiddleware',
         )
         settings.TEMPLATE_CONTEXT_PROCESSORS = \
           list(settings.TEMPLATE_CONTEXT_PROCESSORS)
         settings.TEMPLATE_CONTEXT_PROCESSORS.remove(
-            'django.contrib.messages.context_processors.messages',
+            'django_messages_framework.context_processors.messages',
         )
         data = {
             'messages': ['Test message %d' % x for x in xrange(10)],
             'fail_silently': True,
         }
-        show_url = reverse('django.contrib.messages.tests.urls.show')
+        show_url = reverse('django_messages_framework.tests.urls.show')
         for level in ('debug', 'info', 'success', 'warning', 'error'):
-            add_url = reverse('django.contrib.messages.tests.urls.add',
+            add_url = reverse('django_messages_framework.tests.urls.add',
                               args=(level,))
             response = self.client.post(add_url, data, follow=True)
             self.assertRedirects(response, show_url)
@@ -386,7 +386,7 @@ class BaseTest(TestCase):
             29: 'custom',
         }
         # LEVEL_TAGS is a constant defined in the
-        # django.contrib.messages.storage.base module, so after changing
+        # django_messages_framework.storage.base module, so after changing
         # settings.MESSAGE_TAGS, we need to update that constant too.
         base.LEVEL_TAGS = utils.get_level_tags()
         try:

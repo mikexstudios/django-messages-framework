@@ -1,6 +1,6 @@
-from django.contrib.messages.tests.cookie import CookieTest
-from django.contrib.messages.tests.fallback import FallbackTest
-from django.contrib.messages.tests.middleware import MiddlewareTest
-from django.contrib.messages.tests.session import SessionTest
-from django.contrib.messages.tests.user_messages import \
+from django_messages_framework.tests.cookie import CookieTest
+from django_messages_framework.tests.fallback import FallbackTest
+from django_messages_framework.tests.middleware import MiddlewareTest
+from django_messages_framework.tests.session import SessionTest
+from django_messages_framework.tests.user_messages import \
                                            UserMessagesTest, LegacyFallbackTest

@@ -1,6 +1,6 @@
-from django.contrib.messages.storage.base import BaseStorage
-from django.contrib.messages.storage.cookie import CookieStorage
-from django.contrib.messages.storage.session import SessionStorage
+from django_messages_framework.storage.base import BaseStorage
+from django_messages_framework.storage.cookie import CookieStorage
+from django_messages_framework.storage.session import SessionStorage
 try:
     set
 except NameError:

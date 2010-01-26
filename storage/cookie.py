@@ -1,8 +1,8 @@
 import hmac
 
 from django.conf import settings
-from django.contrib.messages import constants
-from django.contrib.messages.storage.base import BaseStorage, Message
+from django_messages_framework import constants
+from django_messages_framework.storage.base import BaseStorage, Message
 from django.http import CompatCookie
 from django.utils import simplejson as json
 from django.utils.hashcompat import sha_hmac
@@ -111,7 +111,7 @@ class CookieStorage(BaseStorage):
         Creates an HMAC/SHA1 hash based on the value and the project setting's
         SECRET_KEY, modified to make it unique for the present purpose.
         """
-        key = 'django.contrib.messages' + settings.SECRET_KEY
+        key = 'django_messages_framework' + settings.SECRET_KEY
         return hmac.new(key, value, sha_hmac).hexdigest()
 
     def _encode(self, messages, encode_empty=False):

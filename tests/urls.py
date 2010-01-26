@@ -16,7 +16,7 @@ def add(request, message_type):
                                             fail_silently=fail_silently)
         else:
             getattr(messages, message_type)(request, msg)
-    show_url = reverse('django.contrib.messages.tests.urls.show')
+    show_url = reverse('django_messages_framework.tests.urls.show')
     return HttpResponseRedirect(show_url)
 
 

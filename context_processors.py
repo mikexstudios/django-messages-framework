@@ -1,4 +1,4 @@
-from django.contrib.messages.api import get_messages
+from django_messages_framework.api import get_messages
 
 
 def messages(request):

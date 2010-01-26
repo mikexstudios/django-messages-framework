@@ -1,8 +1,8 @@
-from django.contrib.messages import constants
-from django.contrib.messages.tests.base import BaseTest
-from django.contrib.messages.storage.cookie import CookieStorage, \
+from django_messages_framework import constants
+from django_messages_framework.tests.base import BaseTest
+from django_messages_framework.storage.cookie import CookieStorage, \
                                             MessageEncoder, MessageDecoder
-from django.contrib.messages.storage.base import Message
+from django_messages_framework.storage.base import Message
 from django.utils import simplejson as json
 
 

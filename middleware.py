@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.contrib.messages.storage import default_storage
+from django_messages_framework.storage import default_storage
 
 
 class MessageMiddleware(object):

@@ -1,9 +1,9 @@
 from django import http
 from django.contrib.auth.models import User
-from django.contrib.messages.storage.user_messages import UserMessagesStorage,\
+from django_messages_framework.storage.user_messages import UserMessagesStorage,\
     LegacyFallbackStorage
-from django.contrib.messages.tests.cookie import set_cookie_data
-from django.contrib.messages.tests.fallback import FallbackTest
+from django_messages_framework.tests.cookie import set_cookie_data
+from django_messages_framework.tests.fallback import FallbackTest
 from django.test import TestCase
 
 

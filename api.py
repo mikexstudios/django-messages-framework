@@ -1,5 +1,5 @@
-from django.contrib.messages import constants
-from django.contrib.messages.storage import default_storage
+from django_messages_framework import constants
+from django_messages_framework.storage import default_storage
 from django.utils.functional import lazy, memoize
 
 __all__ = (
@@ -22,7 +22,7 @@ def add_message(request, level, message, extra_tags='', fail_silently=False):
     if hasattr(request, 'user') and request.user.is_authenticated():
         return request.user.message_set.create(message=message)
     if not fail_silently:
-        raise MessageFailure('Without the django.contrib.messages '
+        raise MessageFailure('Without the django_messages_framework '
                                 'middleware, messages can only be added to '
                                 'authenticated users.')
 

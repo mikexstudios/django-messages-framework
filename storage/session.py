@@ -1,4 +1,4 @@
-from django.contrib.messages.storage.base import BaseStorage
+from django_messages_framework.storage.base import BaseStorage
 
 
 class SessionStorage(BaseStorage):

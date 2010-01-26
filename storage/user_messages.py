@@ -2,10 +2,10 @@
 Storages used to assist in the deprecation of contrib.auth User messages.
 
 """
-from django.contrib.messages import constants
-from django.contrib.messages.storage.base import BaseStorage, Message
+from django_messages_framework import constants
+from django_messages_framework.storage.base import BaseStorage, Message
 from django.contrib.auth.models import User
-from django.contrib.messages.storage.fallback import FallbackStorage
+from django_messages_framework.storage.fallback import FallbackStorage
 
 
 class UserMessagesStorage(BaseStorage):
