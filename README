@@ -1,0 +1,21 @@
+django-messages-framework by Michael Huynh (mike@mikexstudios.com)
+
+Purpose:
+-------
+
+Django's messages framework is very powerful, but only available in trunk. This
+package is a backport of the messages framework for 1.1.1.
+
+Tested:
+------
+
+Only on Django 1.1.1.
+
+How to use
+----------
+
+Usage is the same as described on:
+http://docs.djangoproject.com/en/dev/ref/contrib/messages/
+
+The only difference is that you replace mentions of 'django.contrib.messages'
+with 'django_messages_framework'.
