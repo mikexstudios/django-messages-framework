@@ -3,9 +3,9 @@ import hmac
 from django.conf import settings
 from django_messages_framework import constants
 from django_messages_framework.storage.base import BaseStorage, Message
-from django.http import CompatCookie
+from django_messages_framework.backport.http import CompatCookie
 from django.utils import simplejson as json
-from django.utils.hashcompat import sha_hmac
+from django_messages_framework.backport.hashcompat import sha_hmac
 
 
 class MessageEncoder(json.JSONEncoder):
