@@ -1,4 +1,10 @@
-django-messages-framework by Michael Huynh (mike@mikexstudios.com)
+django-messages-framework by Django developers
+backported by Michael Huynh (mike@mikexstudios.com)
+
+NOTE: The master branch is an exact mirror of trunk/django/contrib/comments.
+
+The backported version lives in the 'backport' branch! So switch to that to see
+the goods!
 
 Purpose:
 -------
