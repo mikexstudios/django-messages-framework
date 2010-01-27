@@ -1,8 +1,9 @@
-from distutils.core import setup
+from setuptools import setup, find_packages
 
 setup(
     name = 'django_messages_framework',
-    packages = ['django_messages_framework'],
+    #packages = ['django_messages_framework'],
+    packages = find_packages(),
     version = '1.0.0',
     description = "Backport of django (dev)'s messages framework that works with 1.1.1.",
     author='Michael Huynh',
