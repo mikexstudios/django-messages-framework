@@ -1,21 +1,25 @@
 django-messages-framework by Django developers
 backported by Michael Huynh (mike@mikexstudios.com)
 
-NOTE: The master branch is an exact mirror of trunk/django/contrib/comments.
+"Hey, Listen!" ~Navi
+------------
 
-The backported version lives in the 'backport' branch! So switch to that to see
-the goods!
+1. The master branch is the backport. 
+
+2. The mirror branch is an exact mirror of django svn:
+   trunk/django/contrib/comments. However, I can't think of a good reason why
+   you'd want to use mirror.
 
 Purpose:
 -------
 
-Django's messages framework is very powerful, but only available in trunk. This
-package is a backport of the messages framework for 1.1.1.
+Django's messages framework is very powerful, but only available in trunk (and
+soon in 1.2). This package is a backport of the messages framework for 1.1.1.
 
 Tested:
 ------
 
-Only on Django 1.1.1.
+Only on Django 1.1.1. Will most likely work on 1.1 too.
 
 How to use
 ----------
