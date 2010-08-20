@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from django.contrib import messages
+import django_messages_framework as messages
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
