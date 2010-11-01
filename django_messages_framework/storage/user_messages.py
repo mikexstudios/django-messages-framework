@@ -24,7 +24,7 @@ class UserMessagesStorage(BaseStorage):
         """
         user = getattr(self.request, 'user', None)
         if isinstance(user, User):
-            return user._message_set.all()
+            return user.message_set.all()
 
     def add(self, *args, **kwargs):
         raise NotImplementedError('This message storage is read-only.')
