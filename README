@@ -13,19 +13,19 @@ backported by Michael Huynh (mike@mikexstudios.com)
 Purpose:
 -------
 
-Django's messages framework is very powerful, but only available in trunk (and
-soon in 1.2). This package is a backport of the messages framework for 1.1.1.
+Django's messages framework is very powerful, but only available in 1.2). This
+package is a backport of the messages framework for 1.1.1.
 
 Tested:
 ------
 
-Only on Django 1.1.1. Will most likely work on 1.1 too.
+Only on Django 1.1.1 and 1.1.2. Will most likely work on 1.1 too.
 
 How to use
 ----------
 
 Usage is the same as described on:
-http://docs.djangoproject.com/en/dev/ref/contrib/messages/
+http://docs.djangoproject.com/en/1.2/ref/contrib/messages/
 
 The only difference is that you replace mentions of 'django.contrib.messages'
 with 'django_messages_framework'.
